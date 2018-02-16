@@ -7,7 +7,6 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -29,39 +28,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mVideoView = (VideoView) findViewById(R.id.video_view);
+        mVideoView = findViewById(R.id.video_view);
 
-        mPlay = (Button) findViewById(R.id.play);
-        mPause = (Button) findViewById(R.id.pause);
-        mReplay = (Button) findViewById(R.id.replay);
+        mPlay = findViewById(R.id.play);
+        mPause = findViewById(R.id.pause);
+        mReplay = findViewById(R.id.replay);
 
-        mPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mPlay.setOnClickListener(v -> {
 
-                if (!mVideoView.isPlaying()) {
-                    mVideoView.start();
-                }
+            if (!mVideoView.isPlaying()) {
+                mVideoView.start();
             }
         });
 
-        mPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mPause.setOnClickListener(v -> {
 
-                if (mVideoView.isPlaying()) {
-                    mVideoView.pause();
-                }
+            if (mVideoView.isPlaying()) {
+                mVideoView.pause();
             }
         });
 
-        mReplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mReplay.setOnClickListener(v -> {
 
-                if (mVideoView.isPlaying()) {
-                    mVideoView.resume();
-                }
+            if (mVideoView.isPlaying()) {
+                mVideoView.resume();
             }
         });
 
